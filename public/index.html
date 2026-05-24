@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mood Joke App</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <div class="container">
+    <h1>😂 Mood Joke Generator</h1>
+
+    <p class="subtitle">How do you feel today?</p>
+
+    <select id="moodSelect">
+      <option value="happy">😊 Happy</option>
+      <option value="sad">😢 Sad</option>
+      <option value="angry">😡 Angry</option>
+      <option value="tired">😴 Tired</option>
+      <option value="stressed">😰 Stressed</option>
+    </select>
+
+    <input
+      type="text"
+      id="customMood"
+      placeholder="Or enter your custom mood..."
+    />
+
+    <button id="getJokeBtn">Tell Me a Joke</button>
+
+    <div class="joke-box">
+      <p id="jokeText">Your joke will appear here 😂</p>
+    </div>
+
+    <div class="rating-section">
+      <p>Rate this joke:</p>
+
+      <div class="ratings">
+        <button class="rate-btn" data-rate="1">😐</button>
+        <button class="rate-btn" data-rate="2">🙂</button>
+        <button class="rate-btn" data-rate="3">😂</button>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button id="continueBtn">Continue</button>
+      <button id="stopBtn">Stop</button>
+    </div>
+
+    <p id="message"></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
