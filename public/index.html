@@ -3,49 +3,86 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mood Joke App</title>
-  <link rel="stylesheet" href="style.css"/>
+  <title>Mood Joke Generator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
 
+  <div class="bg-blobs">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+
   <div class="container">
-    <h1>😂 Mood Joke Generator</h1>
-
-    <p class="subtitle">How do you feel today?</p>
-
-    <select id="moodSelect">
-      <option value="happy">😊 Happy</option>
-      <option value="sad">😢 Sad</option>
-      <option value="angry">😡 Angry</option>
-      <option value="tired">😴 Tired</option>
-      <option value="stressed">😰 Stressed</option>
-    </select>
-
-    <input
-      type="text"
-      id="customMood"
-      placeholder="Or enter your custom mood..."
-    />
-
-    <button id="getJokeBtn">Tell Me a Joke</button>
-
-    <div class="joke-box">
-      <p id="jokeText">Your joke will appear here 😂</p>
+    <div class="header">
+      <div class="emoji-badge">😂</div>
+      <h1>Mood Jokes</h1>
+      <p class="subtitle">Tell us how you feel — we'll make you laugh</p>
     </div>
 
-    <div class="rating-section">
-      <p>Rate this joke:</p>
+    <div class="mood-section">
+      <label class="field-label">Your vibe right now</label>
+      <div class="mood-pills">
+        <button class="pill active" data-mood="happy">😊 Happy</button>
+        <button class="pill" data-mood="sad">😢 Sad</button>
+        <button class="pill" data-mood="angry">😡 Angry</button>
+        <button class="pill" data-mood="tired">😴 Tired</button>
+        <button class="pill" data-mood="stressed">😰 Stressed</button>
+      </div>
 
+      <div class="custom-mood-wrap">
+        <input
+          type="text"
+          id="customMood"
+          placeholder="Or type your own mood..."
+          autocomplete="off"
+        />
+        <span class="input-icon">✏️</span>
+      </div>
+    </div>
+
+    <button id="getJokeBtn">
+      <span class="btn-text">Tell Me a Joke</span>
+      <span class="btn-icon">🎲</span>
+    </button>
+
+    <div class="joke-box" id="jokeBox">
+      <div class="joke-placeholder" id="jokePlaceholder">
+        <div class="placeholder-icon">🎭</div>
+        <p>Pick a mood and hit the button!</p>
+      </div>
+      <p id="jokeText" class="hidden"></p>
+    </div>
+
+    <div class="rating-section" id="ratingSection">
+      <p class="rating-label">How'd that land?</p>
       <div class="ratings">
-        <button class="rate-btn" data-rate="1">😐</button>
-        <button class="rate-btn" data-rate="2">🙂</button>
-        <button class="rate-btn" data-rate="3">😂</button>
+        <button class="rate-btn" data-rate="1" title="Meh">
+          <span class="rate-emoji">😐</span>
+          <span class="rate-label">Meh</span>
+        </button>
+        <button class="rate-btn" data-rate="2" title="Pretty good">
+          <span class="rate-emoji">🙂</span>
+          <span class="rate-label">Good</span>
+        </button>
+        <button class="rate-btn" data-rate="3" title="Hilarious!">
+          <span class="rate-emoji">😂</span>
+          <span class="rate-label">Hilarious</span>
+        </button>
       </div>
     </div>
 
     <div class="actions">
-      <button id="continueBtn">Continue</button>
-      <button id="stopBtn">Stop</button>
+      <button id="continueBtn" class="action-btn continue">
+        <span>Next Joke</span> <span>→</span>
+      </button>
+      <button id="stopBtn" class="action-btn stop">
+        <span>Stop</span> <span>✕</span>
+      </button>
     </div>
 
     <p id="message"></p>
