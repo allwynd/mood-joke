@@ -24,7 +24,7 @@ class LocalFileStore extends JokeStore {
     this.filePath = filePath
       || (process.env.JOKES_FILE
           ? path.resolve(process.env.JOKES_FILE)
-          : path.join(__dirname, "..", "randomJokes.txt"));
+          : path.join(__dirname, "..", "input_files", "randomJokes.txt"));
 
     this._jokes = [];
     this.reload();
