@@ -8,12 +8,14 @@ const swaggerUi       = require("swagger-ui-express");
 const { createStore } = require("./stores");
 const { runJokeAgent } = require("./agent/jokeAgent");
 const { usageTracker } = require("./usage/usageTracker");
+const { createProvider } = require("./providers");
 
 const app  = express();
 const PORT = process.env.PORT || 3000;
 
 /* ── Initialise the joke store (local file or vector DB) ─────────────────── */
 const store = createStore();
+const provider = createProvider();
 
 /* Hot-reload the local store on SIGHUP (kill -HUP <pid>) */
 process.on("SIGHUP", () => {
@@ -144,7 +146,7 @@ app.post("/get-joke", async (req, res) => {
 
   try {
     console.log(`😊  /get-joke mood="${mood}"`);
-    const joke = await runJokeAgent(mood, store);
+    const joke = await runJokeAgent(mood, store, provider);
     res.json({ joke, mood });
   } catch (err) {
     console.error("❌  Agent error:", err.message);
@@ -357,6 +359,5 @@ app.listen(PORT, () => {
   const storeType = (process.env.STORE || "local").toUpperCase();
   console.log(`✅  Mood Joke Generator running → http://localhost:${PORT}`);
   console.log(`📦  Store: ${storeType}`);
-  console.log(`🤖  Agent Model: ${process.env.ANTHROPIC_MODEL || "claude-sonnet-4-6"}`);
   console.log(`📘  API Docs:    http://localhost:${PORT}/docs`);
 });

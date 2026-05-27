@@ -477,5 +477,11 @@ Why do fathers take an extra pair of socks when they go golfing? In case they ge
 What’s 50 Cent’s name in Zimbabwe? 200 Dollars.
 Knock knock. Who's there? A broken pencil. A broken pencil who? Never mind. It's pointless.
 What did the router say to the doctor? It hurts when IP.
-What did the duck say when he bought lipstick? Put it on my bill
+What did the duck say when he bought lipstick? Put it on my bill.
+Why would a guitarist become a good programmer? He's adept at riffing in C#.
+Why did the programmer go to art school? He wanted to learn how to code outside the box.
+Why do Java programmers wear glasses? Because they don't C#.
+There are 10 types of people in this world... Those who understand binary and those who don't
+Why did the functions stop calling each other? Because they had constant arguments.
+
 
